@@ -174,6 +174,34 @@ namespace heistV2
 
             rolodex.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
 
+            List<IRobber> crew = new List<IRobber>() { };
+
+            bool stillAddingCrew = true;
+
+            while (stillAddingCrew)
+            {
+                Console.Write("enter the number, starting with 0, of the team member you would like to add to your crew. Hit enter when you're done ");
+                string strCrewMember = Console.ReadLine();
+                if (strCrewMember == "")
+                {
+                    stillAddingCrew = false;
+                }
+                try
+                {
+                    int newCrewMember = Int32.Parse(strCrewMember);
+                    crew.Add(rolodex[newCrewMember]);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("C'mon, you know that's not a number");
+                }
+
+            }
+
+            Console.WriteLine("this is the crew you have chosen:");
+
+            crew.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
+
         }
     }
 }
