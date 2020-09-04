@@ -141,7 +141,7 @@ namespace heistV2
             };
 
             string mostSecure = "";
-            //string leastSecure = "";
+            string leastSecure = "";
 
             if (theBank.AlarmScore > theBank.VaultScore && theBank.AlarmScore > theBank.SecurityGuardScore)
             {
@@ -155,8 +155,20 @@ namespace heistV2
             {
                 mostSecure = "Security Team";
             }
+            if (theBank.SecurityGuardScore < theBank.AlarmScore && theBank.SecurityGuardScore < theBank.VaultScore)
+            {
+                leastSecure = "Security Team";
+            }
+            else if (theBank.VaultScore < theBank.AlarmScore && theBank.VaultScore < theBank.SecurityGuardScore)
+            {
+                leastSecure = "Vult";
+            }
+            else if (theBank.AlarmScore < theBank.VaultScore && theBank.AlarmScore < theBank.SecurityGuardScore)
+            {
+                leastSecure = "Alarm System";
+            }
 
-            Console.WriteLine(mostSecure);
+            Console.WriteLine($"The Bank's most secure element is the {mostSecure} and the least secure element is the {leastSecure}");
         }
     }
 }
