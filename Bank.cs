@@ -12,11 +12,11 @@ namespace heistV2
         //A computed boolean property called IsSecure. If all the scores are less than or equal to 0, this should be false. If any of the scores are above 0, this should be true
         public void TestSecure()
         {
-            if (CashOnHand + AlarmScore + VaultScore + SecurityGuardScore <= 0)
+            if (AlarmScore + VaultScore + SecurityGuardScore <= 0)
             {
                 IsSecure = false;
             }
-            else if (CashOnHand > 0 || AlarmScore > 0 || VaultScore > 0 || SecurityGuardScore > 0)
+            else if (AlarmScore > 0 || VaultScore > 0 || SecurityGuardScore > 0)
             {
                 IsSecure = true;
             }

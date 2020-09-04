@@ -11,25 +11,25 @@ namespace heistV2
             Hacker owl = new Hacker()
             {
                 name = "Owl",
-                SkillLevel = 75,
+                SkillLevel = 101,
                 PercentageCut = 25
             };
             Hacker eeyore = new Hacker()
             {
                 name = "Eeyore",
-                SkillLevel = 75,
+                SkillLevel = 101,
                 PercentageCut = 1
             };
             LockSpecialist piglet = new LockSpecialist()
             {
                 name = "Piglet",
-                SkillLevel = 25,
+                SkillLevel = 101,
                 PercentageCut = 15
             };
             Muscle pooh = new Muscle()
             {
                 name = "Pooh",
-                SkillLevel = 75,
+                SkillLevel = 101,
                 PercentageCut = 50
             };
 
@@ -139,6 +139,7 @@ namespace heistV2
                 CashOnHand = new Random().Next(50000, 1000000)
 
             };
+            theBank.TestSecure();
 
             string mostSecure = "";
             string leastSecure = "";
@@ -201,6 +202,23 @@ namespace heistV2
             Console.WriteLine("this is the crew you have chosen:");
 
             crew.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
+
+            Console.WriteLine("---------GAME TIME----------");
+            Console.WriteLine(theBank.IsSecure);
+            Console.WriteLine(theBank.AlarmScore);
+            Console.WriteLine(theBank.SecurityGuardScore);
+            Console.WriteLine(theBank.VaultScore);
+            crew.ForEach(robber => robber.PerformSkill(theBank));
+            theBank.TestSecure();
+
+            if (theBank.IsSecure == true)
+            {
+                Console.WriteLine("FAILURE!");
+            }
+            else if (theBank.IsSecure == false)
+            {
+                Console.WriteLine("SUCCESS!!!");
+            }
 
         }
     }
