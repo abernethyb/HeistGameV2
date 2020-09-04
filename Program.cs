@@ -11,26 +11,26 @@ namespace heistV2
             Hacker owl = new Hacker()
             {
                 name = "Owl",
-                SkillLevel = 101,
+                SkillLevel = 50,
                 PercentageCut = 25
             };
             Hacker eeyore = new Hacker()
             {
                 name = "Eeyore",
-                SkillLevel = 101,
-                PercentageCut = 1
+                SkillLevel = 90,
+                PercentageCut = 95
             };
             LockSpecialist piglet = new LockSpecialist()
             {
                 name = "Piglet",
-                SkillLevel = 101,
-                PercentageCut = 15
+                SkillLevel = 15,
+                PercentageCut = 5
             };
             Muscle pooh = new Muscle()
             {
                 name = "Pooh",
-                SkillLevel = 101,
-                PercentageCut = 50
+                SkillLevel = new Random().Next(0, 100),
+                PercentageCut = new Random().Next(0, 100)
             };
 
             List<IRobber> rolodex = new List<IRobber>()
