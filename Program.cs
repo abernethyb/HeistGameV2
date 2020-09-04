@@ -136,7 +136,7 @@ namespace heistV2
                 AlarmScore = new Random().Next(0, 100),
                 VaultScore = new Random().Next(0, 100),
                 SecurityGuardScore = new Random().Next(0, 100),
-                CashOnHand = new Random().Next(50000, 1000000)
+                CashOnHand = new Random().Next(500000, 1000000)
 
             };
             theBank.TestSecure();
@@ -218,6 +218,23 @@ namespace heistV2
             else if (theBank.IsSecure == false)
             {
                 Console.WriteLine("SUCCESS!!!");
+                Console.WriteLine($"Here's the takeaway: ");
+                Console.WriteLine($"The bank had {theBank.CashOnHand}");
+
+                // int loot = theBank.CashOnHand;
+                // theBank.CashOnHand = 0;
+
+                crew.ForEach(robber => Console.WriteLine($"{robber} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
+                crew.ForEach(robber => theBank.CashOnHand = theBank.CashOnHand - ((theBank.CashOnHand * robber.PercentageCut) / 100));
+                Console.WriteLine($"The bank now has {theBank.CashOnHand}");
+
+                int userLoot = theBank.CashOnHand;
+
+                Console.WriteLine($"You got {userLoot}.");
+                theBank.CashOnHand = theBank.CashOnHand - userLoot;
+
+                Console.WriteLine($"The bank now has {theBank.CashOnHand}");
+
             }
 
         }
