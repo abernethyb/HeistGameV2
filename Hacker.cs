@@ -18,5 +18,9 @@ namespace heistV2
                 Console.WriteLine($"{name} just disabled the alarm system, way to go {name}!");
             }
         }
+        public override string ToString()
+        {
+            return "Hacker";
+        }
     }
 }

@@ -17,5 +17,9 @@ namespace heistV2
                 Console.WriteLine($"{name} just knocked that guy out, way to go {name}!");
             }
         }
+        public override string ToString()
+        {
+            return "Muscle";
+        }
     }
 }

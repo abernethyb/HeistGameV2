@@ -19,5 +19,9 @@ namespace heistV2
                 Console.WriteLine($"{name} is has broken into the vault, way to go {name}!!");
             }
         }
+        public override string ToString()
+        {
+            return "Lock Specialist";
+        }
     }
 }

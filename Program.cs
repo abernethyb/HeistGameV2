@@ -169,6 +169,11 @@ namespace heistV2
             }
 
             Console.WriteLine($"The Bank's most secure element is the {mostSecure} and the least secure element is the {leastSecure}");
+
+            Console.WriteLine("Here's a list of all the possible recruits:");
+
+            rolodex.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
+
         }
     }
 }
