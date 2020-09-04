@@ -131,6 +131,32 @@ namespace heistV2
                 Console.WriteLine($"There are currently {rolodex.Count} team members to choose from.");
             }
 
+            Bank theBank = new Bank()
+            {
+                AlarmScore = new Random().Next(0, 100),
+                VaultScore = new Random().Next(0, 100),
+                SecurityGuardScore = new Random().Next(0, 100),
+                CashOnHand = new Random().Next(50000, 1000000)
+
+            };
+
+            string mostSecure = "";
+            //string leastSecure = "";
+
+            if (theBank.AlarmScore > theBank.VaultScore && theBank.AlarmScore > theBank.SecurityGuardScore)
+            {
+                mostSecure = "Alarm System";
+            }
+            else if (theBank.VaultScore > theBank.AlarmScore && theBank.VaultScore > theBank.SecurityGuardScore)
+            {
+                mostSecure = "Vult";
+            }
+            else if (theBank.SecurityGuardScore > theBank.AlarmScore && theBank.SecurityGuardScore > theBank.VaultScore)
+            {
+                mostSecure = "Security Team";
+            }
+
+            Console.WriteLine(mostSecure);
         }
     }
 }
