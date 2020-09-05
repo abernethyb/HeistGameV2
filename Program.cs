@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace heistV2
 {
@@ -47,21 +48,16 @@ namespace heistV2
                 kangor,
                 pooh
             };
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
-            /*
-            
-
-            When the program starts, print out the number of current operatives in the roladex. Then prompt the user to enter the name of a new possible crew member. Once the user has entered a name, print out a list of possible specialties and have the user select which specialty this operative has. The list should contain the following options
-
-                Hacker (Disables alarms)
-                Muscle (Disarms guards)
-                Lock Specialist (cracks vault)
-
-            Once the user has selected a specialty, prompt them to enter the crew member's skill level as an integer between 1 and 100. Then prompt the user to enter the percentage cut the crew member demands for each mission. Once the user has entered the crew member's name, specialty, skill level, and cut, you should instantiate the appropriate class for that crew member (based on their specialty) and they should be added to the rolodex.
-
-            Continue the above action and allow the user to enter as many crew members as they like to the rolodex until they enter a blank name before continuing.
-
-            */
+            Console.Beep(294, 2000);
+            Console.Beep(440, 2500);
+            Console.Beep(330, 2500);
+            Console.Beep(294, 2900);
+            Console.Beep(276, 2700);
 
             Console.WriteLine($"There are currently {rolodex.Count} team members to choose from.");
 
@@ -76,13 +72,18 @@ namespace heistV2
                 Console.WriteLine("You're going to want more to choose from. Enter a new crew member.");
                 Console.Write("Name: ");
                 string newName = Console.ReadLine();
+                Console.Clear();
                 if (newName == "")
                 {
                     isNotDone = false;
+                    Console.Clear();
 
                 }
                 else
                 {
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("Choose their specialty:");
                     Console.WriteLine("");
@@ -90,7 +91,10 @@ namespace heistV2
                     Console.WriteLine("Enter m for Muscle (Disarms guards)");
                     Console.WriteLine("Enter L Lock Specialist (cracks vault)");
                     string newType = Console.ReadLine();
-
+                    Console.Clear();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine("");
 
                     Console.Write("Enter a number between 1 and 100, this will be their skill level: ");
@@ -99,9 +103,20 @@ namespace heistV2
 
                     Console.WriteLine("");
 
+                    Console.Clear();
+
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+
                     Console.Write("Now enter a number between 1 and 100, this will be their percentage of the loot: ");
                     string strNewPercentage = Console.ReadLine();
                     int newPercentage = Int32.Parse(strNewPercentage);
+
+                    Console.Clear();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
 
                     if (newType == "h")
                     {
@@ -134,7 +149,9 @@ namespace heistV2
                         rolodex.Add(newLockSpecialist);
                     }
                 }
-
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"There are currently {rolodex.Count} team members to choose from.");
             }
 
@@ -176,7 +193,24 @@ namespace heistV2
                 leastSecure = "Alarm System";
             }
 
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Hit enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
             Console.WriteLine($"The Bank's most secure element is the {mostSecure} and the least secure element is the {leastSecure}");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Hit enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             Console.WriteLine("Here's a list of all the possible recruits:");
 
