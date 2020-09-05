@@ -11,20 +11,26 @@ namespace heistV2
             Hacker owl = new Hacker()
             {
                 name = "Owl",
-                SkillLevel = 50,
+                SkillLevel = 100, //50,
                 PercentageCut = 25
             };
             Hacker eeyore = new Hacker()
             {
                 name = "Eeyore",
-                SkillLevel = 90,
-                PercentageCut = 95
+                SkillLevel = 100, //90,
+                PercentageCut = 25 //95
             };
             LockSpecialist piglet = new LockSpecialist()
             {
                 name = "Piglet",
-                SkillLevel = 15,
-                PercentageCut = 5
+                SkillLevel = 100, //15,
+                PercentageCut = 25 //5
+            };
+            Muscle kangor = new Muscle()
+            {
+                name = "kangor",
+                SkillLevel = 100,
+                PercentageCut = 25
             };
             Muscle pooh = new Muscle()
             {
@@ -38,6 +44,7 @@ namespace heistV2
                 owl,
                 eeyore,
                 piglet,
+                kangor,
                 pooh
             };
 
@@ -94,7 +101,7 @@ namespace heistV2
 
                     Console.Write("Now enter a number between 1 and 100, this will be their percentage of the loot: ");
                     string strNewPercentage = Console.ReadLine();
-                    int newPercentage = Int32.Parse(strNewSkillLevel);
+                    int newPercentage = Int32.Parse(strNewPercentage);
 
                     if (newType == "h")
                     {
@@ -225,10 +232,20 @@ namespace heistV2
                 // theBank.CashOnHand = 0;
 
                 crew.ForEach(robber => Console.WriteLine($"{robber} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
-                crew.ForEach(robber => theBank.CashOnHand = theBank.CashOnHand - ((theBank.CashOnHand * robber.PercentageCut) / 100));
-                Console.WriteLine($"The bank now has {theBank.CashOnHand}");
 
-                int userLoot = theBank.CashOnHand;
+                int lootTaken = 0;
+
+                crew.ForEach(robber => lootTaken = lootTaken + ((theBank.CashOnHand * robber.PercentageCut) / 100));
+
+                Console.WriteLine($"Loot taken {lootTaken}");
+
+                // crew.ForEach(robber => theBank.CashOnHand = theBank.CashOnHand - ((theBank.CashOnHand * robber.PercentageCut) / 100));
+
+                Console.WriteLine($"The bank now has {theBank.CashOnHand - lootTaken}");
+
+                int userLoot = theBank.CashOnHand - lootTaken;
+
+                theBank.CashOnHand = theBank.CashOnHand - lootTaken;
 
                 Console.WriteLine($"You got {userLoot}.");
                 theBank.CashOnHand = theBank.CashOnHand - userLoot;
