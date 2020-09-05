@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace heistV2
 {
@@ -13,10 +14,36 @@ namespace heistV2
             bank.VaultScore = bank.VaultScore - SkillLevel;
 
             Console.WriteLine($"{name} is picking the lock on the vault.");
+            Thread.Sleep(1000);
+            Console.WriteLine($@"
+                                    ...      ...
+                                    ....    ....
+                                    .............
+                                   ...        ...");
+            Thread.Sleep(5000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             if (bank.VaultScore < 0)
             {
+                Thread.Sleep(1000);
+                Console.WriteLine($@"   ...      ...
+                                    ....    ....
+                                    .............
+                                   ...        ...");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"{name} is has broken into the vault, way to go {name}!!");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
         public override string ToString()

@@ -213,8 +213,14 @@ namespace heistV2
             Console.WriteLine("");
 
             Console.WriteLine("Here's a list of all the possible recruits:");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
-            rolodex.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
+            rolodex.ForEach(robber => Console.WriteLine($"{robber.name}: {robber}. Skill Level: {robber.SkillLevel}. Demands: {robber.PercentageCut}% of the loot"));
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             List<IRobber> crew = new List<IRobber>() { };
 
@@ -240,15 +246,53 @@ namespace heistV2
 
             }
 
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("this is the crew you have chosen:");
 
             crew.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
 
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("---------GAME TIME----------");
-            Console.WriteLine(theBank.IsSecure);
-            Console.WriteLine(theBank.AlarmScore);
-            Console.WriteLine(theBank.SecurityGuardScore);
-            Console.WriteLine(theBank.VaultScore);
+
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("THREE");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("TWO");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("ONE");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            // Console.WriteLine(theBank.IsSecure);
+            // Console.WriteLine(theBank.AlarmScore);
+            // Console.WriteLine(theBank.SecurityGuardScore);
+            // Console.WriteLine(theBank.VaultScore);
             crew.ForEach(robber => robber.PerformSkill(theBank));
             theBank.TestSecure();
 
