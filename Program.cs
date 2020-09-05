@@ -303,23 +303,65 @@ namespace heistV2
             else if (theBank.IsSecure == false)
             {
                 Console.WriteLine("SUCCESS!!!");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"Here's the takeaway: ");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"The bank had {theBank.CashOnHand}");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 // int loot = theBank.CashOnHand;
                 // theBank.CashOnHand = 0;
 
-                crew.ForEach(robber => Console.WriteLine($"{robber} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
+                crew.ForEach(robber => Console.WriteLine($"{robber.name} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 int lootTaken = 0;
 
                 crew.ForEach(robber => lootTaken = lootTaken + ((theBank.CashOnHand * robber.PercentageCut) / 100));
 
-                Console.WriteLine($"Loot taken {lootTaken}");
+                Console.WriteLine($"Loot taken by the team: {lootTaken}. Nice work, everyone.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 // crew.ForEach(robber => theBank.CashOnHand = theBank.CashOnHand - ((theBank.CashOnHand * robber.PercentageCut) / 100));
 
-                Console.WriteLine($"The bank now has {theBank.CashOnHand - lootTaken}");
+                Console.WriteLine($"But that leaves {theBank.CashOnHand - lootTaken} leftover.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Somebody's going to have to look after that, right?");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Well...");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 int userLoot = theBank.CashOnHand - lootTaken;
 
@@ -328,7 +370,27 @@ namespace heistV2
                 Console.WriteLine($"You got {userLoot}.");
                 theBank.CashOnHand = theBank.CashOnHand - userLoot;
 
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
                 Console.WriteLine($"The bank now has {theBank.CashOnHand}");
+
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("THANKS FOR PLAYING!!!!!");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("BYE!!!");
+                Thread.Sleep(4000);
+                Console.Clear();
 
             }
 
