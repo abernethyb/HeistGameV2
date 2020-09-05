@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace heistV2
 {
@@ -12,10 +13,36 @@ namespace heistV2
         {
             bank.AlarmScore = bank.AlarmScore - SkillLevel;
             Console.WriteLine($"{name} is hacking the alarm system");
+            Thread.Sleep(1000);
+            Console.WriteLine($@"
+                                    ...      ...
+                                    ....    ....
+                                    .............
+                                   ...        ...");
+            Thread.Sleep(5000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             if (bank.AlarmScore < 0)
             {
+                Thread.Sleep(1000);
+                Console.WriteLine($@"   ...      ...
+                                    ....    ....
+                                    .............
+                                   ...        ...");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"{name} just disabled the alarm system, way to go {name}!");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
         public override string ToString()

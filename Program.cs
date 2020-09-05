@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace heistV2
 {
@@ -47,21 +48,16 @@ namespace heistV2
                 kangor,
                 pooh
             };
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
-            /*
-            
-
-            When the program starts, print out the number of current operatives in the roladex. Then prompt the user to enter the name of a new possible crew member. Once the user has entered a name, print out a list of possible specialties and have the user select which specialty this operative has. The list should contain the following options
-
-                Hacker (Disables alarms)
-                Muscle (Disarms guards)
-                Lock Specialist (cracks vault)
-
-            Once the user has selected a specialty, prompt them to enter the crew member's skill level as an integer between 1 and 100. Then prompt the user to enter the percentage cut the crew member demands for each mission. Once the user has entered the crew member's name, specialty, skill level, and cut, you should instantiate the appropriate class for that crew member (based on their specialty) and they should be added to the rolodex.
-
-            Continue the above action and allow the user to enter as many crew members as they like to the rolodex until they enter a blank name before continuing.
-
-            */
+            Console.Beep(294, 2000);
+            Console.Beep(440, 2500);
+            Console.Beep(330, 2500);
+            Console.Beep(294, 2900);
+            Console.Beep(276, 2700);
 
             Console.WriteLine($"There are currently {rolodex.Count} team members to choose from.");
 
@@ -76,13 +72,18 @@ namespace heistV2
                 Console.WriteLine("You're going to want more to choose from. Enter a new crew member.");
                 Console.Write("Name: ");
                 string newName = Console.ReadLine();
+                Console.Clear();
                 if (newName == "")
                 {
                     isNotDone = false;
+                    Console.Clear();
 
                 }
                 else
                 {
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine("");
                     Console.WriteLine("Choose their specialty:");
                     Console.WriteLine("");
@@ -90,7 +91,10 @@ namespace heistV2
                     Console.WriteLine("Enter m for Muscle (Disarms guards)");
                     Console.WriteLine("Enter L Lock Specialist (cracks vault)");
                     string newType = Console.ReadLine();
-
+                    Console.Clear();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine("");
 
                     Console.Write("Enter a number between 1 and 100, this will be their skill level: ");
@@ -99,9 +103,20 @@ namespace heistV2
 
                     Console.WriteLine("");
 
+                    Console.Clear();
+
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+
                     Console.Write("Now enter a number between 1 and 100, this will be their percentage of the loot: ");
                     string strNewPercentage = Console.ReadLine();
                     int newPercentage = Int32.Parse(strNewPercentage);
+
+                    Console.Clear();
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
 
                     if (newType == "h")
                     {
@@ -134,7 +149,9 @@ namespace heistV2
                         rolodex.Add(newLockSpecialist);
                     }
                 }
-
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"There are currently {rolodex.Count} team members to choose from.");
             }
 
@@ -176,11 +193,34 @@ namespace heistV2
                 leastSecure = "Alarm System";
             }
 
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Hit enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
             Console.WriteLine($"The Bank's most secure element is the {mostSecure} and the least secure element is the {leastSecure}");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Hit enter to continue");
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             Console.WriteLine("Here's a list of all the possible recruits:");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
-            rolodex.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
+            rolodex.ForEach(robber => Console.WriteLine($"{robber.name}: {robber}. Skill Level: {robber.SkillLevel}. Demands: {robber.PercentageCut}% of the loot"));
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
 
             List<IRobber> crew = new List<IRobber>() { };
 
@@ -206,15 +246,53 @@ namespace heistV2
 
             }
 
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("this is the crew you have chosen:");
 
             crew.ForEach(robber => Console.WriteLine($"{robber}: {robber.name}, Skill Level: {robber.SkillLevel}, Demands: {robber.PercentageCut}% of the loot"));
 
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("---------GAME TIME----------");
-            Console.WriteLine(theBank.IsSecure);
-            Console.WriteLine(theBank.AlarmScore);
-            Console.WriteLine(theBank.SecurityGuardScore);
-            Console.WriteLine(theBank.VaultScore);
+
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("THREE");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("TWO");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            Console.WriteLine("ONE");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Beep();
+            // Console.WriteLine(theBank.IsSecure);
+            // Console.WriteLine(theBank.AlarmScore);
+            // Console.WriteLine(theBank.SecurityGuardScore);
+            // Console.WriteLine(theBank.VaultScore);
             crew.ForEach(robber => robber.PerformSkill(theBank));
             theBank.TestSecure();
 
@@ -225,23 +303,65 @@ namespace heistV2
             else if (theBank.IsSecure == false)
             {
                 Console.WriteLine("SUCCESS!!!");
+                Thread.Sleep(5000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"Here's the takeaway: ");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"The bank had {theBank.CashOnHand}");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 // int loot = theBank.CashOnHand;
                 // theBank.CashOnHand = 0;
 
-                crew.ForEach(robber => Console.WriteLine($"{robber} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
+                crew.ForEach(robber => Console.WriteLine($"{robber.name} took {((theBank.CashOnHand * robber.PercentageCut) / 100)}"));
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 int lootTaken = 0;
 
                 crew.ForEach(robber => lootTaken = lootTaken + ((theBank.CashOnHand * robber.PercentageCut) / 100));
 
-                Console.WriteLine($"Loot taken {lootTaken}");
+                Console.WriteLine($"Loot taken by the team: {lootTaken}. Nice work, everyone.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 // crew.ForEach(robber => theBank.CashOnHand = theBank.CashOnHand - ((theBank.CashOnHand * robber.PercentageCut) / 100));
 
-                Console.WriteLine($"The bank now has {theBank.CashOnHand - lootTaken}");
+                Console.WriteLine($"But that leaves {theBank.CashOnHand - lootTaken} leftover.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Somebody's going to have to look after that, right?");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("Well...");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
 
                 int userLoot = theBank.CashOnHand - lootTaken;
 
@@ -250,7 +370,27 @@ namespace heistV2
                 Console.WriteLine($"You got {userLoot}.");
                 theBank.CashOnHand = theBank.CashOnHand - userLoot;
 
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
                 Console.WriteLine($"The bank now has {theBank.CashOnHand}");
+
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("THANKS FOR PLAYING!!!!!");
+                Thread.Sleep(4000);
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("BYE!!!");
+                Thread.Sleep(4000);
+                Console.Clear();
 
             }
 
